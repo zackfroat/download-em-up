@@ -278,11 +278,13 @@ class _EquipmentDetailSheetState extends State<EquipmentDetailSheet> {
             children: [
               const Icon(Icons.info_outline_rounded, size: 18, color: AppColors.darkText),
               const SizedBox(width: 8),
-              const Text(
-                'Machinery Specifications & Status (Steps 1-3)',
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13.5, color: AppColors.darkText),
+              const Expanded(
+                child: Text(
+                  'Machinery Specifications & Status (Steps 1-3)',
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13.5, color: AppColors.darkText),
+                ),
               ),
-              const Spacer(),
+              const SizedBox(width: 8),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(
@@ -406,12 +408,14 @@ class _EquipmentDetailSheetState extends State<EquipmentDetailSheet> {
             children: [
               const Icon(Icons.event_available_rounded, size: 18, color: Color(0xFF16A34A)),
               const SizedBox(width: 8),
-              const Text(
-                'Store Team Schedule & Calendar Sync (Steps 4-5)',
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13.5, color: Color(0xFF14532D)),
+              const Expanded(
+                child: Text(
+                  'Store Team Schedule & Calendar Sync (Steps 4-5)',
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13.5, color: Color(0xFF14532D)),
+                ),
               ),
-              const Spacer(),
-              if (_item.isCalendarSynced)
+              if (_item.isCalendarSynced) ...[
+                const SizedBox(width: 8),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                   decoration: BoxDecoration(
@@ -434,6 +438,7 @@ class _EquipmentDetailSheetState extends State<EquipmentDetailSheet> {
                     ],
                   ),
                 ),
+              ],
             ],
           ),
           const SizedBox(height: 10),
@@ -470,9 +475,11 @@ class _EquipmentDetailSheetState extends State<EquipmentDetailSheet> {
             children: [
               Icon(Icons.notifications_active_rounded, size: 18, color: Color(0xFFD97706)),
               SizedBox(width: 8),
-              Text(
-                'Automated Reminders & PIC Notification (Steps 6-9)',
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13.5, color: Color(0xFF78350F)),
+              Expanded(
+                child: Text(
+                  'Automated Reminders & PIC Notification (Steps 6-9)',
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13.5, color: Color(0xFF78350F)),
+                ),
               ),
             ],
           ),
@@ -582,11 +589,13 @@ class _EquipmentDetailSheetState extends State<EquipmentDetailSheet> {
             children: [
               const Icon(Icons.assignment_turned_in_rounded, size: 18, color: Color(0xFF4F46E5)),
               const SizedBox(width: 8),
-              const Text(
-                'Equipment PIC Maintenance Request (Step 10)',
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13.5, color: Color(0xFF312E81)),
+              const Expanded(
+                child: Text(
+                  'Equipment PIC Maintenance Request (Step 10)',
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13.5, color: Color(0xFF312E81)),
+                ),
               ),
-              const Spacer(),
+              const SizedBox(width: 8),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(
@@ -683,11 +692,13 @@ class _EquipmentDetailSheetState extends State<EquipmentDetailSheet> {
             children: [
               const Icon(Icons.engineering_rounded, size: 18, color: Color(0xFFEA580C)),
               const SizedBox(width: 8),
-              const Text(
-                'Maintenance Team Execution & Form (Steps 11-13)',
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13.5, color: Color(0xFF7C2D12)),
+              const Expanded(
+                child: Text(
+                  'Maintenance Team Execution & Form (Steps 11-13)',
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13.5, color: Color(0xFF7C2D12)),
+                ),
               ),
-              const Spacer(),
+              const SizedBox(width: 8),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(
