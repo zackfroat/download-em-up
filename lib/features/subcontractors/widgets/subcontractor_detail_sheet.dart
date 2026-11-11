@@ -98,36 +98,52 @@ class _SubcontractorDetailSheetState extends State<SubcontractorDetailSheet> {
         children: [
           // Header Bar
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 18, 16, 14),
+            padding: const EdgeInsets.fromLTRB(20, 16, 16, 12),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  decoration: BoxDecoration(
-                    color: record.rating.color.withValues(alpha: 0.12),
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(
-                      color: record.rating.color.withValues(alpha: 0.3),
-                    ),
-                  ),
-                  child: Text(
-                    record.rating.displayName,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                      color: record.rating.color,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 12),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                            decoration: BoxDecoration(
+                              color: record.rating.color.withValues(alpha: 0.12),
+                              borderRadius: BorderRadius.circular(6),
+                              border: Border.all(
+                                color: record.rating.color.withValues(alpha: 0.3),
+                              ),
+                            ),
+                            child: Text(
+                              record.rating.displayName,
+                              style: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w700,
+                                color: record.rating.color,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              record.tradeCategory,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontSize: 11.5,
+                                color: AppColors.textMuted,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 6),
                       Text(
                         record.companyName,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 16.5,
                           fontWeight: FontWeight.w800,
@@ -136,13 +152,12 @@ class _SubcontractorDetailSheetState extends State<SubcontractorDetailSheet> {
                               : AppColors.darkText,
                         ),
                       ),
+                      const SizedBox(height: 2),
                       Text(
-                        '${record.tradeCategory} • ${record.contractNumber}',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
+                        'Contract No: ${record.contractNumber}',
                         style: const TextStyle(
-                          fontSize: 12,
-                          color: AppColors.textMuted,
+                          fontSize: 11.5,
+                          color: AppColors.textSubtle,
                         ),
                       ),
                     ],

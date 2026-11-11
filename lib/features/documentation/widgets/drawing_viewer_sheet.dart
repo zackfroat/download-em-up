@@ -48,48 +48,55 @@ class _DrawingViewerSheetState extends State<DrawingViewerSheet> {
         children: [
           // Header Bar
           Padding(
-            padding: const EdgeInsets.fromLTRB(24, 18, 16, 14),
+            padding: const EdgeInsets.fromLTRB(20, 16, 16, 12),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  decoration: BoxDecoration(
-                    color: job.stage.badgeColor.withValues(alpha: 0.12),
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(
-                      color: job.stage.badgeColor.withValues(alpha: 0.3),
-                    ),
-                  ),
-                  child: Text(
-                    job.stage.displayName,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                      color: job.stage.badgeColor,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 12),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                            decoration: BoxDecoration(
+                              color: job.stage.badgeColor.withValues(alpha: 0.12),
+                              borderRadius: BorderRadius.circular(6),
+                              border: Border.all(
+                                color: job.stage.badgeColor.withValues(alpha: 0.3),
+                              ),
+                            ),
+                            child: Text(
+                              job.stage.displayName,
+                              style: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w700,
+                                color: job.stage.badgeColor,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              '${job.projectSite} • ${job.towerFoundationId}',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontSize: 11.5,
+                                color: AppColors.textMuted,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 6),
                       Text(
                         job.drawingFileName,
                         style: const TextStyle(
                           fontSize: 16.5,
                           fontWeight: FontWeight.w800,
                           color: AppColors.darkText,
-                        ),
-                      ),
-                      Text(
-                        '${job.projectSite} • ${job.towerFoundationId}',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: AppColors.textMuted,
                         ),
                       ),
                     ],
@@ -306,12 +313,14 @@ class _DrawingViewerSheetState extends State<DrawingViewerSheet> {
             children: [
               Icon(Icons.lock_rounded, color: AppColors.teal, size: 20),
               SizedBox(width: 8),
-              Text(
-                'Step 1: Enter Drawing File Name & Provided Access Code',
-                style: TextStyle(
-                  fontSize: 14.5,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.darkText,
+              Expanded(
+                child: Text(
+                  'Step 1: Enter Drawing File Name & Provided Access Code',
+                  style: TextStyle(
+                    fontSize: 14.5,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.darkText,
+                  ),
                 ),
               ),
             ],
